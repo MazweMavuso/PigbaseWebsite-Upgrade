@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - PigBase Eswatini</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#479c18',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .carousel {
+            transition: transform 0.5s ease-in-out;
+        }
+        .mobile-menu {
+            transition: all 0.3s ease-in-out;
+        }
+        .team-member:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-white text-black font-sans">
+    <!-- Header -->
+  <header class="bg-primary/95 backdrop-blur-md text-white shadow-lg fixed w-full h-24 z-50">
+  <div class="container mx-auto px-4 py-7 flex justify-between items-center">
+    
+    <!-- Logo + Title -->
+    <div class="flex items-center space-x-2">
+      <img src="images/logo.png" alt="PigBase Eswatini Logo" class="h-10 w-10 ">
+      <h1 class="text-2xl font-extrabold tracking-wide">PigBase <span class="text-white/80">Eswatini</span></h1>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+      <a href="index.html" class="hover:text-brand-200 transition">Home</a>
+      <a href="about.html" class="hover:text-brand-200 transition">About</a>
+      <a href="#" class="hover:text-brand-200 transition">News</a>
+      <a href="#" class="hover:text-brand-200 transition">Sales</a>
+      <a href="#" class="hover:text-brand-200 transition">Contact Us</a>
+      <a href="#" class="hover:text-brand-200 transition">Login/Register</a>
+    </nav>
+
+    <!-- App Download Button -->
+    <a href="#" class="hidden md:inline-block bg-white text-primary px-4 py-2 rounded-xl font-semibold shadow hover:bg-gray-100 transition">
+      App Download
+    </a>
+
+    <!-- Mobile Menu Button -->
+    <button id="menu-toggle" class="md:hidden focus:outline-none p-2 rounded-lg hover:bg-white/10 transition">
+      <i data-feather="menu"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-primary/95 backdrop-blur-md px-4 pb-4">
+    <a href="#" class="block py-2 border-b border-white/10 hover:text-brand-200 transition">Home</a>
+    <a href="#" class="block py-2 border-b border-white/10 hover:text-brand-200 transition">About</a>
+    <a href="#" class="block py-2 border-b border-white/10 hover:text-brand-200 transition">News</a>
+    <a href="#" class="block py-2 border-b border-white/10 hover:text-brand-200 transition">Sales</a>
+    <a href="#" class="block py-2 border-b border-white/10 hover:text-brand-200 transition">Contact Us</a>
+    <a href="#" class="block py-2 border-b border-white/10 hover:text-brand-200 transition">Login/Register</a>
+    <a href="#" class="block w-max mt-3 bg-white text-primary px-4 py-2 rounded-xl font-semibold shadow hover:bg-gray-100 transition">
+      App Download
+    </a>
+  </div>
+</header>
+
+    <!-- Page Header -->
+    <section class="pt-32 pb-20 bg-primary/10">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4" data-aos="fade-up">About PigBase Eswatini</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Empowering pig farmers in Eswatini with innovative management solutions since 2019
+            </p>
+        </div>
+    </section>
+
+  <!-- Our Story Section -->
+<section class="py-16 px-4">
+  <div class="container mx-auto">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div data-aos="fade-right">
+        <h2 class="text-3xl font-bold mb-6">Our Story</h2>
+        <p class="text-gray-600 mb-4 text-justify">
+          PigBase Eswatini was established in 2019 as an initiative of the Ministry of Agriculture, 
+          Department of Veterinary and Livestock Services under the Pig Industry Enhancement Project. 
+          This project was sponsored by the Taiwan International Cooperation and Development Fund (ICDF).
+        </p>
+        <p class="text-gray-600 mb-4 text-justify">
+          Our journey began with a simple yet powerful vision: to transform pig farming in Eswatini 
+          through digital innovation. We recognized that many farmers struggled with manual record-keeping 
+          and lacked access to modern management tools that could optimize their operations.
+        </p>
+        <p class="text-gray-600 text-justify">
+          Today, we're proud to serve hundreds of farmers across the country, helping them increase 
+          productivity, improve animal health, and maximize profitability through our comprehensive 
+          pig management system.
+        </p>
+      </div>
+
+      <!-- Image with reduced size -->
+      <div data-aos="fade-left" class="flex justify-center">
+        <img src="images/whatispigbase.png"
+             alt="Pig farming in Eswatini" 
+             class="rounded-lg shadow-lg max-w-sm md:max-w-md object-cover">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Mission & Vision -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-white p-8 rounded-lg shadow-sm h-full">
+                        <div class="text-primary mb-6">
+                            <i data-feather="target" class="w-12 h-12"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">Our Mission</h3>
+                        <p class="text-gray-600 text-justify">
+                           Our mission is to provide quality service to local pig farmers and other stakeholders through effective extension service. Pigbase adds transparency to what we do. Data collected in Pigbase will not only help you make informed decisions but will also help us make better policies. The data is analysed and harnessed with research based information and delivered back to you (the target audience) through workshops and field visits to give you skills and knowledge to improve the quality of your pig farming.
+                        </p>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-white p-8 rounded-lg shadow-sm h-full">
+                        <div class="text-primary mb-6">
+                            <i data-feather="eye" class="w-12 h-12"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">Our Vision</h3>
+                       <p class="text-gray-600 text-justify">
+                            We are committed to promote the pig industry in eSwatini by providing you with improved genetics and quality extension service towards sustainable and diversified pig industry.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team Section -->
+    <section class="py-16 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-4" data-aos="fade-up">Our Team</h2>
+            <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
+                Meet the dedicated professionals behind PigBase Eswatini who work tirelessly to support our farming community.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Team Member 1 -->
+                <div class="text-center team-member" data-aos="fade-up" data-aos-delay="100">
+                    <div class="rounded-full overflow-hidden w-48 h-48 mx-auto mb-6 shadow-md">
+                        <img src="http://static.photos/people/300x300/1" alt="Team Member" class="w-full h-full object-cover transition duration-300">
+                    </div>
+                    <h3 class="text-xl font-semibold">Dr. James Dlamini</h3>
+                    <p class="text-primary mb-2">Project Director</p>
+                    <p class="text-gray-600 text-sm">Veterinary specialist with 15+ years in livestock management</p>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="text-center team-member" data-aos="fade-up" data-aos-delay="200">
+                    <div class="rounded-full overflow-hidden w-48 h-48 mx-auto mb-6 shadow-md">
+                        <img src="http://static.photos/people/300x300/2" alt="Team Member" class="w-full h-full object-cover transition duration-300">
+                    </div>
+                    <h3 class="text-xl font-semibold">Nomsa Simelane</h3>
+                    <p class="text-primary mb-2">Technical Lead</p>
+                    <p class="text-gray-600 text-sm">Software engineer specializing in agricultural solutions</p>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="text-center team-member" data-aos="fade-up" data-aos-delay="300">
+                    <div class="rounded-full overflow-hidden w-48 h-48 mx-auto mb-6 shadow-md">
+                        <img src="http://static.photos/people/300x300/3" alt="Team Member" class="w-full h-full object-cover transition duration-300">
+                    </div>
+                    <h3 class="text-xl font-semibold">Thomas Shongwe</h3>
+                    <p class="text-primary mb-2">Farmer Support Specialist</p>
+                    <p class="text-gray-600 text-sm">Former pig farmer with extensive practical experience</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="contact.html" class="bg-primary text-white px-6 py-3 rounded-full hover:bg-green-700 transition inline-flex items-center">
+                    <span>Contact Our Team</span>
+                    <i data-feather="arrow-right" class="ml-2 w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Our Partners</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-2 gap-2 items-center">
+                <div class="flex justify-center" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/gcie.png" alt="Partner Logo" class="h-16 object-contain grayscale hover:grayscale-0 transition">
+                </div>
+                <div class="flex justify-center" data-aos="fade-up" data-aos-delay="200">
+                    <img src="images/icdf.png" alt="Partner Logo" class="h-16 object-contain grayscale hover:grayscale-0 transition">
+                </div>
+                
+            </div>
+            
+            <div class="mt-12 text-center" data-aos="fade-up">
+                <p class="text-gray-600 max-w-2xl mx-auto mb-6">
+                    PigBase Eswatini is made possible through the collaborative efforts of our valued partners 
+                    who share our vision for a digitally transformed agricultural sector.
+                </p>
+                <a href="contact.html" class="text-primary font-medium hover:underline">Become a Partner</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">What Farmers Say</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-primary mb-4">
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "PigBase has transformed how I manage my farm. I've reduced feed costs by 15% and improved 
+                        the health of my pigs with the tracking features."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="rounded-full overflow-hidden w-12 h-12 mr-4">
+                            <img src="http://static.photos/people/100x100/4" alt="Farmer" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Bongani Mamba</h4>
+                            <p class="text-sm text-gray-500">Pig Farmer, Manzini</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-primary mb-4">
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "The expert support team has been incredible. Whenever I have questions about pig health 
+                        or breeding, I get professional advice within hours."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="rounded-full overflow-hidden w-12 h-12 mr-4">
+                            <img src="http://static.photos/people/100x100/5" alt="Farmer" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Thandiwe Nkosi</h4>
+                            <p class="text-sm text-gray-500">Pig Farmer, Mbabane</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-primary mb-4">
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                        <i data-feather="star" class="w-5 h-5 inline"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "The sales platform has connected me directly with buyers, eliminating middlemen and 
+                        increasing my profit margins significantly."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="rounded-full overflow-hidden w-12 h-12 mr-4">
+                            <img src="http://static.photos/people/100x100/6" alt="Farmer" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Sipho Dlamini</h4>
+                            <p class="text-sm text-gray-500">Pig Farmer, Nhlangano</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 px-4 bg-primary text-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Join PigBase Eswatini Today</h2>
+            <p class="text-xl max-w-2xl mx-auto mb-8" data-aos="fade-up" data-aos-delay="100">
+                Become part of the growing community of pig farmers transforming their operations with our platform.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="register.html" class="bg-white text-primary px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">
+                    Create Account
+                </a>
+                <a href="contact.html" class="border border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Column 1 -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">PigBase Eswatini</h3>
+                    <p class="text-gray-400">Helping pig farmers manage their operations efficiently with cutting-edge technology.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="news.html" class="text-gray-400 hover:text-white transition">News</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Pig Management</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Health Tracking</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Breeding Records</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Financial Tools</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Expert Support</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i data-feather="map-pin" class="mr-2 mt-1"></i>
+                            <span>123 Pig Farm Road, Mbabane, Eswatini</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="mr-2"></i>
+                            <span>+268 1234 5678</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="mr-2"></i>
+                            <span>info@pigbase.co.sz</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>© <span id="current-year"></span> PigBase Eswatini. All rights reserved. Developed by Mazwe.</p>
+                <script>
+                    document.getElementById('current-year').textContent = new Date().getFullYear();
+                </script>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            feather.replace();
+        });
+
+        // Initialize feather icons
+        feather.replace();
+    </script>
+</body>
+</html>
