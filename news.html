@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - PigBase Eswatini</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#479c18',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .mobile-menu {
+            transition: all 0.3s ease-in-out;
+        }
+        .news-card {
+            transition: transform 0.3s ease;
+        }
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+        .category-filter.active {
+            background-color: #479c18;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-white text-black font-sans">
+    <!-- Header -->
+    <header class="bg-primary/95 backdrop-blur-md text-white shadow-lg fixed w-full h-24 z-50">
+        <div class="container mx-auto px-4 py-7 flex justify-between items-center">
+            
+            <!-- Logo + Title -->
+            <div class="flex items-center space-x-2">
+                <img src="images/logo.png" alt="PigBase Eswatini Logo" class="h-10 w-10 ">
+                <h1 class="text-2xl font-extrabold tracking-wide">PigBase <span class="text-white/80">Eswatini</span></h1>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                <a href="index.html" class="hover:text-brand-200 transition">Home</a>
+                <a href="about.html" class="hover:text-brand-200 transition">About</a>
+                <a href="news.html" class="hover:text-brand-200 transition font-bold">News</a>
+                <a href="#" class="hover:text-brand-200 transition">Sales</a>
+                <a href="#" class="hover:text-brand-200 transition">Contact Us</a>
+                <a href="#" class="hover:text-brand-200 transition">Login/Register</a>
+            </nav>
+
+            <!-- App Download Button -->
+            <a href="#" class="hidden md:inline-block bg-white text-primary px-4 py-2 rounded-xl font-semibold shadow hover:bg-gray-100 transition">
+                App Download
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-toggle" class="md:hidden focus:outline-none p-2 rounded-lg hover:bg-white/10 transition">
+                <i data-feather="menu"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-primary/95 backdrop-blur-md px-4 pb-4">
+            <a href="index.html" class="block py-2 border-b border-white/10 hover:text-brand-200 transition">Home</a>
+            <a href="about.html" class="block py-2 border-b border-white/10 hover:text-brand-200 transition">About</a>
+            <a href="news.html" class="block py-2 border-b border-white/10 hover:text-brand-200 transition font-bold">News</a>
+            <a href="#" class="block py-2 border-b border-white/10 hover:text-brand-200 transition">Sales</a>
+            <a href="contact.html" class="block py-2 border-b border-white/10 hover:text-brand-200 transition">Contact Us</a>
+            <a href="login.html" class="block py-2 border-b border-white/10 hover:text-brand-200 transition">Login/Register</a>
+            <a href="#" class="block w-max mt-3 bg-white text-primary px-4 py-2 rounded-xl font-semibold shadow hover:bg-gray-100 transition">
+                App Download
+            </a>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="pt-32 pb-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl font-bold text-center mb-4" data-aos="fade-up">PigBase News & Updates</h1>
+            <p class="text-lg text-gray-600 text-center max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Stay updated with the latest news, events, and insights from the pig farming industry in Eswatini.
+            </p>
+        </div>
+    </section>
+
+    <!-- News Content -->
+    <section class="py-12 px-4">
+        <div class="container mx-auto">
+            <!-- Category Filters -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12" data-aos="fade-up">
+                <button class="category-filter active px-4 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition" data-category="all">
+                    All News
+                </button>
+                <button class="category-filter px-4 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition" data-category="industry">
+                    Industry Updates
+                </button>
+                <button class="category-filter px-4 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition" data-category="events">
+                    Events
+                </button>
+                <button class="category-filter px-4 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition" data-category="tips">
+                    Farming Tips
+                </button>
+                <button class="category-filter px-4 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition" data-category="technology">
+                    Technology
+                </button>
+            </div>
+
+            <!-- Featured Article -->
+            <div class="mb-16 bg-white rounded-xl overflow-hidden shadow-lg" data-aos="fade-up">
+                <div class="md:flex">
+                    <div class="md:flex-1">
+                        <img src="http://static.photos/agriculture/800x600/featured" alt="Featured Article" class="w-full h-full object-cover">
+                    </div>
+                    <div class="md:flex-1 p-8">
+                        <span class="text-sm text-primary font-semibold">FEATURED • June 20, 2023</span>
+                        <h2 class="text-3xl font-bold my-4">Revolutionizing Pig Farming in Eswatini with Digital Solutions</h2>
+                        <p class="text-gray-600 mb-6">
+                            PigBase Eswatini continues to transform traditional pig farming practices through innovative digital solutions. 
+                            Our latest platform update includes enhanced tracking features and data analytics to help farmers maximize productivity.
+                        </p>
+                        <div class="flex items-center">
+                            <img src="http://static.photos/people/60x60/1" alt="Author" class="w-10 h-10 rounded-full mr-3">
+                            <div>
+                                <p class="font-semibold">Dr. Themba Dlamini</p>
+                                <p class="text-sm text-gray-500">Ministry of Agriculture</p>
+                            </div>
+                        </div>
+                        <a href="article.html" class="inline-block mt-6 bg-primary text-white px-6 py-2 rounded-full hover:bg-green-700 transition">
+                            Read Full Article
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- News 1 -->
+                <div class="news-card bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition" data-aos="fade-up" data-category="industry">
+                    <img src="http://static.photos/agriculture/640x360/4" alt="News Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm text-primary">June 15, 2023 • Industry Updates</span>
+                        <h3 class="text-xl font-semibold my-2">New Pig Breeding Techniques</h3>
+                        <p class="text-gray-600 mb-4">Discover the latest breeding methods that can increase your farm's productivity by up to 30%.</p>
+                        <a href="article.html" class="text-primary font-medium hover:underline flex items-center">
+                            Read More
+                            <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- News 2 -->
+                <div class="news-card bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition" data-aos="fade-up" data-aos-delay="100" data-category="tips">
+                    <img src="http://static.photos/agriculture/640x360/5" alt="News Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm text-primary">June 8, 2023 • Farming Tips</span>
+                        <h3 class="text-xl font-semibold my-2">Feed Optimization Guide</h3>
+                        <p class="text-gray-600 mb-4">Learn how to optimize your feed costs without compromising your pigs' nutrition.</p>
+                        <a href="article.html" class="text-primary font-medium hover:underline flex items-center">
+                            Read More
+                            <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- News 3 -->
+                <div class="news-card bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition" data-aos="fade-up" data-aos-delay="200" data-category="events">
+                    <img src="http://static.photos/agriculture/640x360/6" alt="News Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm text-primary">June 1, 2023 • Events</span>
+                        <h3 class="text-xl font-semibold my-2">Disease Prevention Workshop</h3>
+                        <p class="text-gray-600 mb-4">Join our free workshop on preventing common pig diseases in the region.</p>
+                        <a href="article.html" class="text-primary font-medium hover:underline flex items-center">
+                            Read More
+                            <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- News 4 -->
+                <div class="news-card bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition" data-aos="fade-up" data-category="technology">
+                    <img src="http://static.photos/agriculture/640x360/7" alt="News Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm text-primary">May 25, 2023 • Technology</span>
+                        <h3 class="text-xl font-semibold my-2">New Mobile App Features</h3>
+                        <p class="text-gray-600 mb-4">Our latest app update includes offline capabilities and enhanced reporting features.</p>
+                        <a href="article.html" class="text-primary font-medium hover:underline flex items-center">
+                            Read More
+                            <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- News 5 -->
+                <div class="news-card bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition" data-aos="fade-up" data-aos-delay="100" data-category="industry">
+                    <img src="http://static.photos/agriculture/640x360/8" alt="News Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm text-primary">May 18, 2023 • Industry Updates</span>
+                        <h3 class="text-xl font-semibold my-2">Market Trends Analysis</h3>
+                        <p class="text-gray-600 mb-4">Latest analysis of pork market trends in Eswatini and the surrounding region.</p>
+                        <a href="article.html" class="text-primary font-medium hover:underline flex items-center">
+                            Read More
+                            <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- News 6 -->
+                <div class="news-card bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition" data-aos="fade-up" data-aos-delay="200" data-category="tips">
+                    <img src="http://static.photos/agriculture/640x360/9" alt="News Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm text-primary">May 10, 2023 • Farming Tips</span>
+                        <h3 class="text-xl font-semibold my-2">Seasonal Management Guide</h3>
+                        <p class="text-gray-600 mb-4">Adapt your pig farming practices to seasonal changes with our comprehensive guide.</p>
+                        <a href="article.html" class="text-primary font-medium hover:underline flex items-center">
+                            Read More
+                            <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex justify-center" data-aos="fade-up">
+                <nav class="flex items-center space-x-2">
+                    <a href="#" class="px-3 py-1 rounded border text-gray-600 hover:bg-gray-100">&laquo; Previous</a>
+                    <a href="#" class="px-3 py-1 rounded border bg-primary text-white">1</a>
+                    <a href="#" class="px-3 py-1 rounded border text-gray-600 hover:bg-gray-100">2</a>
+                    <a href="#" class="px-3 py-1 rounded border text-gray-600 hover:bg-gray-100">3</a>
+                    <span class="px-2 py-1">...</span>
+                    <a href="#" class="px-3 py-1 rounded border text-gray-600 hover:bg-gray-100">Next &raquo;</a>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 px-4 bg-primary text-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">Stay Updated with PigBase</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Subscribe to our newsletter to receive the latest news and updates directly in your inbox.
+            </p>
+            <form class="max-w-md mx-auto flex flex-col md:flex-row gap-3" data-aos="fade-up" data-aos-delay="200">
+                <input type="email" placeholder="Your email address" class="flex-1 px-4 py-3 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-white">
+                <button type="submit" class="bg-white text-primary px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Column 1 -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">PigBase Eswatini</h3>
+                    <p class="text-gray-400">Helping pig farmers manage their operations efficiently with cutting-edge technology.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="news.html" class="text-gray-400 hover:text-white transition">News</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Sales</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Pig Management</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Health Tracking</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Breeding Records</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Financial Tools</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Expert Support</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i data-feather="map-pin" class="mr-2 mt-1"></i>
+                            <span>123 Pig Farm Road, Mbabane, Eswatini</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="mr-2"></i>
+                            <span>+268 1234 5678</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="mr-2"></i>
+                            <span>info@pigbase.co.sz</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>© <span id="current-year"></span> PigBase Eswatini. All rights reserved. Developed by Mazwe.</p>
+                <script>
+                    document.getElementById('current-year').textContent = new Date().getFullYear();
+                </script>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            feather.replace();
+        });
+
+        // Category Filtering
+        const categoryFilters = document.querySelectorAll('.category-filter');
+        const newsCards = document.querySelectorAll('.news-card');
+        
+        categoryFilters.forEach(filter => {
+            filter.addEventListener('click', () => {
+                // Update active state
+                categoryFilters.forEach(f => f.classList.remove('active'));
+                filter.classList.add('active');
+                
+                // Filter news cards
+                const category = filter.getAttribute('data-category');
+                
+                newsCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Initialize feather icons
+        feather.replace();
+    </script>
+</body>
+</html>

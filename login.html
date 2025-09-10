@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register - PigBase Eswatini</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#479c18',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .mobile-menu {
+            transition: all 0.3s ease-in-out;
+        }
+        .auth-container {
+            transition: all 0.3s ease;
+        }
+        .auth-form {
+            display: none;
+        }
+        .auth-form.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .form-tab {
+            cursor: pointer;
+            padding: 1rem 2rem;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .form-tab.active {
+            border-bottom-color: #479c18;
+            color: #479c18;
+            font-weight: 600;
+        }
+        .password-toggle {
+            cursor: pointer;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body class="bg-white text-black font-sans">
+    <!-- Header -->
+    <header class="bg-primary/95 backdrop-blur-md text-white shadow-lg fixed w-full h-24 z-50">
+        <div class="container mx-auto px-4 py-7 flex justify-between items-center">
+            
+            <!-- Logo + Title -->
+            <div class="flex items-center space-x-2">
+                <img src="images/logo.png" alt="PigBase Eswatini Logo" class="h-10 w-10 ">
+                <h1 class="text-2xl font-extrabold tracking-wide">PigBase <span class="text-white/80">Eswatini</span></h1>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                <a href="index.html" class="hover:text-brand-200 transition">Home</a>
+                <a href="about.html" class="hover:text-brand-200 transition">About</a>
+                <a href="news.html" class="hover:text-brand-200 transition">News</a>
+                <a href="sales.html" class="hover:text-brand-200 transition">Sales</a>
+                <a href="contact.html" class="hover:text-brand-200 transition">Contact Us</a>
+                <a href="login.html" class="hover:text-brand-200 transition font-semibold">Login/Register</a>
+            </nav>
+
+            <!-- App Download Button -->
+            <a href="#" class="hidden md:inline-block bg-white text-primary px-4 py-2 rounded-xl font-semibold shadow hover:bg-gray-100 transition">
+                App Download
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-toggle" class="md:hidden focus:outline-none p-2 rounded-lg hover:bg-white/10 transition">
+                <i data-feather="menu"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-primary/95 backdrop-blur-md px-4 pb-4">
+            <a href="index.html" class="block py-2 border-b border-white/10 hover:text-brand-200 transition">Home</a>
+            <a href="about.html" class="block py-2 border-b border-white/10 hover:text-brand-200 transition">About</a>
+            <a href="news.html" class="block py-2 border-b border-white/10 hover:text-brand-200 transition">News</a>
+            <a href="sales.html" class="block py-2 border-b border-white/10 hover:text-brand-200 transition">Sales</a>
+            <a href="contact.html" class="block py-2 border-b border-white/10 hover:text-brand-200 transition">Contact Us</a>
+            <a href="login.html" class="block py-2 border-b border-white/10 hover:text-brand-200 transition font-semibold">Login/Register</a>
+            <a href="#" class="block w-max mt-3 bg-white text-primary px-4 py-2 rounded-xl font-semibold shadow hover:bg-gray-100 transition">
+                App Download
+            </a>
+        </div>
+    </header>
+
+    <!-- Auth Section -->
+    <section class="pt-32 pb-20 bg-gray-50 min-h-screen">
+        <div class="container mx-auto px-4">
+            <div class="max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up">
+                <!-- Tabs -->
+                <div class="flex border-b">
+                    <div class="form-tab active w-1/2 text-center" data-form="login-form">
+                        Login
+                    </div>
+                    <div class="form-tab w-1/2 text-center" data-form="register-form">
+                        Register
+                    </div>
+                </div>
+                
+                <!-- Login Form -->
+                <form id="login-form" class="auth-form active p-8">
+                    <h2 class="text-2xl font-bold mb-6 text-center">Welcome Back</h2>
+                    
+                    <div class="mb-6">
+                        <label for="login-email" class="block text-gray-700 mb-2">Email Address</label>
+                        <input type="email" id="login-email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                    </div>
+                    
+                    <div class="mb-6 relative">
+                        <label for="login-password" class="block text-gray-700 mb-2">Password</label>
+                        <input type="password" id="login-password" name="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary pr-10" required>
+                        <span class="password-toggle absolute" data-target="login-password">
+                            <i data-feather="eye" class="w-5 h-5 text-gray-400"></i>
+                        </span>
+                    </div>
+                    
+                    <div class="flex justify-between items-center mb-6">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="form-checkbox text-primary rounded">
+                            <span class="ml-2 text-gray-700">Remember me</span>
+                        </label>
+                        <a href="#" class="text-primary hover:underline text-sm">Forgot Password?</a>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition mb-6">
+                        Login
+                    </button>
+                    
+                    <div class="text-center">
+                        <p class="text-gray-600">Or login with</p>
+                        <div class="flex justify-center space-x-4 mt-4">
+                            <button type="button" class="p-2 border border-gray-300 rounded-full hover:bg-gray-50 transition">
+                                <i data-feather="facebook" class="w-5 h-5 text-blue-600"></i>
+                            </button>
+                            <button type="button" class="p-2 border border-gray-300 rounded-full hover:bg-gray-50 transition">
+                                <i data-feather="twitter" class="w-5 h-5 text-blue-400"></i>
+                            </button>
+                            <button type="button" class="p-2 border border-gray-300 rounded-full hover:bg-gray-50 transition">
+                                <i data-feather="mail" class="w-5 h-5 text-red-500"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                
+                <!-- Register Form -->
+                <form id="register-form" class="auth-form p-8">
+                    <h2 class="text-2xl font-bold mb-6 text-center">Create Account</h2>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="register-firstname" class="block text-gray-700 mb-2">First Name</label>
+                            <input type="text" id="register-firstname" name="firstname" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        </div>
+                        <div>
+                            <label for="register-lastname" class="block text-gray-700 mb-2">Last Name</label>
+                            <input type="text" id="register-lastname" name="lastname" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="register-email" class="block text-gray-700 mb-2">Email Address</label>
+                        <input type="email" id="register-email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="register-phone" class="block text-gray-700 mb-2">Phone Number</label>
+                        <input type="tel" id="register-phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                    </div>
+                    
+                    <div class="mb-4 relative">
+                        <label for="register-password" class="block text-gray-700 mb-2">Password</label>
+                        <input type="password" id="register-password" name="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary pr-10" required>
+                        <span class="password-toggle absolute" data-target="register-password">
+                            <i data-feather="eye" class="w-5 h-5 text-gray-400"></i>
+                        </span>
+                    </div>
+                    
+                    <div class="mb-6 relative">
+                        <label for="register-confirm-password" class="block text-gray-700 mb-2">Confirm Password</label>
+                        <input type="password" id="register-confirm-password" name="confirm-password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary pr-10" required>
+                        <span class="password-toggle absolute" data-target="register-confirm-password">
+                            <i data-feather="eye" class="w-5 h-5 text-gray-400"></i>
+                        </span>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="flex items-start">
+                            <input type="checkbox" class="form-checkbox text-primary rounded mt-1" required>
+                            <span class="ml-2 text-gray-700 text-sm">I agree to the <a href="#" class="text-primary hover:underline">Terms of Service</a> and <a href="#" class="text-primary hover:underline">Privacy Policy</a></span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition mb-6">
+                        Create Account
+                    </button>
+                    
+                    <div class="text-center">
+                        <p class="text-gray-600">Or register with</p>
+                        <div class="flex justify-center space-x-4 mt-4">
+                            <button type="button" class="p-2 border border-gray-300 rounded-full hover:bg-gray-50 transition">
+                                <i data-feather="facebook" class="w-5 h-5 text-blue-600"></i>
+                            </button>
+                            <button type="button" class="p-2 border border-gray-300 rounded-full hover:bg-gray-50 transition">
+                                <i data-feather="twitter" class="w-5 h-5 text-blue-400"></i>
+                            </button>
+                            <button type="button" class="p-2 border border-gray-300 rounded-full hover:bg-gray-50 transition">
+                                <i data-feather="mail" class="w-5 h-5 text-red-500"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Additional Info -->
+            <div class="max-w-md mx-auto mt-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="text-xl font-semibold mb-4">Why Create an Account?</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <div class="bg-primary/10 rounded-full w-10 h-10 flex items-center justify-center mx-auto mb-2">
+                            <i data-feather="bar-chart-2" class="w-5 h-5 text-primary"></i>
+                        </div>
+                        <p>Track your farm performance</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <div class="bg-primary/10 rounded-full w-10 h-10 flex items-center justify-center mx-auto mb-2">
+                            <i data-feather="bell" class="w-5 h-5 text-primary"></i>
+                        </div>
+                        <p>Get important alerts</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <div class="bg-primary/10 rounded-full w-10 h-10 flex items-center justify-center mx-auto mb-2">
+                            <i data-feather="dollar-sign" class="w-5 h-5 text-primary"></i>
+                        </div>
+                        <p>Access market prices</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Column 1 -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">PigBase Eswatini</h3>
+                    <p class="text-gray-400">Helping pig farmers manage their operations efficiently with cutting-edge technology.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="news.html" class="text-gray-400 hover:text-white transition">News</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Pig Management</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Health Tracking</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Breeding Records</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Financial Tools</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Expert Support</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i data-feather="map-pin" class="mr-2 mt-1"></i>
+                            <span>123 Pig Farm Road, Mbabane, Eswatini</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="mr-2"></i>
+                            <span>+268 1234 5678</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="mr-2"></i>
+                            <span>info@pigbase.co.sz</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>© <span id="current-year"></span> PigBase Eswatini. All rights reserved. Developed by Mazwe.</p>
+                <script>
+                    document.getElementById('current-year').textContent = new Date().getFullYear();
+                </script>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            feather.replace();
+        });
+
+        // Form Toggle Functionality
+        const formTabs = document.querySelectorAll('.form-tab');
+        const authForms = document.querySelectorAll('.auth-form');
+        
+        formTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const formId = tab.getAttribute('data-form');
+                
+                // Update active tab
+                formTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Show selected form
+                authForms.forEach(form => {
+                    form.classList.remove('active');
+                    if (form.id === formId) {
+                        setTimeout(() => {
+                            form.classList.add('active');
+                        }, 10);
+                    }
+                });
+            });
+        });
+
+        // Password Visibility Toggle
+        document.querySelectorAll('.password-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const passwordInput = document.getElementById(targetId);
+                const icon = this.querySelector('i');
+                
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    icon.setAttribute('data-feather', 'eye-off');
+                } else {
+                    passwordInput.type = 'password';
+                    icon.setAttribute('data-feather', 'eye');
+                }
+                feather.replace();
+            });
+        });
+
+        // Form Validation and Submission
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your login logic here
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            
+            console.log('Login attempt:', { email, password });
+            // In a real application, you would send this data to your server
+            alert('Login functionality would connect to your backend API.');
+        });
+
+        document.getElementById('register-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic validation
+            const password = document.getElementById('register-password').value;
+            const confirmPassword = document.getElementById('register-confirm-password').value;
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            // Add your registration logic here
+            const formData = {
+                firstname: document.getElementById('register-firstname').value,
+                lastname: document.getElementById('register-lastname').value,
+                email: document.getElementById('register-email').value,
+                phone: document.getElementById('register-phone').value,
+                password: password
+            };
+            
+            console.log('Registration attempt:', formData);
+            // In a real application, you would send this data to your server
+            alert('Registration functionality would connect to your backend API.');
+        });
+
+        // Initialize feather icons
+        feather.replace();
+    </script>
+</body>
+</html>
